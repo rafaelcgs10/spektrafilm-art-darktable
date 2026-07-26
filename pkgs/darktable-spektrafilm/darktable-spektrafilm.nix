@@ -17,9 +17,14 @@
   lib,
   darktable,
   fetchFromGitHub,
+  # Enable darktable's ONNX-based AI features (pulls in onnxruntime + libarchive
+  # and the USE_AI cmake path). The spektrafilm-draft branch keeps darktable's
+  # USE_AI option (src/CMakeLists.txt), so it composes normally. Off by default
+  # to match nixpkgs; flip with `.override { withAi = true; }`.
+  withAi ? false,
 }:
 
-darktable.overrideAttrs (old: {
+(darktable.override { inherit withAi; }).overrideAttrs (old: {
   pname = "darktable-spektrafilm";
   # Tracks a moving branch head (spektrafilm-draft), not a tagged release, so
   # the datestamp keeps the store path honest. Bump it together with src.rev.
