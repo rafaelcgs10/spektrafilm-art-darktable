@@ -83,6 +83,10 @@ let
         --prefix PATH : "${spektrafilm-python}/bin"
     '';
   }));
+  darktableSpektrafilm =
+    pkgsDarktable.callPackage ./pkgs/darktable-spektrafilm/darktable-spektrafilm.nix {
+      inherit spektrafilmDataPack;
+    };
 in
 {
   spektrafilm = spektrafilm-pkgs.python3Packages.spektrafilm;
@@ -91,10 +95,8 @@ in
   # darktable built from the spektrafilm PR branch (native C module,
   # independent of the spektrafilm Python package above). Based on pkgsDarktable
   # (nixpkgs-unstable) for a dependency set close to the 5.8.0 source.
-  darktable-spektrafilm =
-    pkgsDarktable.callPackage ./pkgs/darktable-spektrafilm/darktable-spektrafilm.nix {
-      inherit spektrafilmDataPack;
-    };
+  darktable-spektrafilm = darktableSpektrafilm;
+  darktable-spektrafilm-ai = darktableSpektrafilm.override { withAi = true; };
 
   # Runtime film/print data pack for the module above.
   spektrafilm-data-pack = spektrafilmDataPack;
