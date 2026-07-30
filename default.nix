@@ -60,6 +60,7 @@ let
     };
     patches = (oldAttrs.patches or []) ++ [
       ./pkgs/spektrafilm/art-spektrafilm-luts-dir.patch
+      ./pkgs/spektrafilm/art-film-simulation-empty-lut-noop.patch
     ];
     postInstall = (oldAttrs.postInstall or "") + ''
       mkdir -p $out/share/ART/extlut
