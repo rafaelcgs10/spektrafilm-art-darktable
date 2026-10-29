@@ -35,10 +35,10 @@
   # NB: named `modelHashes` (not `hashes`) to avoid colliding with nixpkgs'
   # own `pkgs.hashes`, which callPackage would otherwise inject here.
   modelHashes ? {
-    "denoise-nind" = "sha256-+SCHGBMedEmspdUDrKipD/sw6Kxs9kdWoVQQUNQTrwM=";
-    "rawdenoise-nind" = "sha256-uQDYeJx/trzX9N9K8OBIe2Pkrlb/EAzyO9lhWLBodDQ=";
-    "upscale-realplksr" = "sha256-7O2OxZ2Zi0r6ZFit0vu6CUGUgjWM0jLdekKLoTjlBfA=";
-    "mask-object-sam21-small" = "sha256-hCxdoDJgXEn2VKTbczsuI1304zLZEvz2vY+jTiBYvIw=";
+    "denoise-nind" = "sha256-pRYZfmJoHYDuiG9TX6GkWw8O8ow6V49wa3HPzmHP5W4=";
+    "rawdenoise-nind" = "sha256-Gg2z3EpNsTzl7ueqL+0JeRS+KKP2KNxgcdxqqNFjd7w=";
+    "upscale-realplksr" = "sha256-uIdE+qWVvXXyRVv5gNlejY8kmHXCETV8aAm/Tk7Pseo=";
+    "mask-object-sam21-small" = "sha256-LDF6Xn9iLxKrkWwbskiwODZ12LpuS8zT0Mndt97Mmrg=";
   },
 
   # which of the models above to bundle (default: all pinned)
